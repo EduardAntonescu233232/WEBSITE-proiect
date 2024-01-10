@@ -1,0 +1,32 @@
+﻿@model WEBSITESTEFANKEZDI.Models.ArticleDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .details-background::before{
+        background-image: url('@Url.Content("~/article_images/" + Model.FirstImagePath)');
+    }
+</style>
+<div class="details-background">
+
+    <div class="details-content">
+        <div class="details-text">
+            <h2>@Model.Title</h2>
+            <p>@Model.Content</p>
+        </div>
+            @if (Model.Images != null && Model.Images.Any())
+            {
+                <div class="details-grid">
+                
+                    @foreach (var imagePath in Model.Images)
+                    {
+                        <div class="details-card">
+                            <img src="@Url.Content("~/article_images/" + imagePath)" alt="Image" class="details-image" />
+                        </div>
+                    } 
+                </div>
+            }
+    </div>
+</div>

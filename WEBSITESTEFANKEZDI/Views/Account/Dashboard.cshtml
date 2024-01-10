@@ -1,0 +1,39 @@
+﻿@model List<WEBSITESTEFANKEZDI.ViewModels.ArticleViewModel>
+
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dashboard-background">
+    <div class="table-container">
+        <h2 class="titlu-dashboard">DashBoard</h2>
+        <div class="buton-create">
+            <a class="buton-create-new" asp-controller="Article" asp-action="Create"> Add New Article</a>
+        </div>  
+        <div class="table-dashboard">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <ul class="ul-dashboard">
+
+                        <li>
+                            <div class="li-ul-dashboard">@item.Title</div>
+                        </li>
+
+                        <li>
+                            <a asp-controller="Article" asp-action="Edit" asp-route-id="@item.Id" class="buton-edit">&#9998; |</a>
+                            <a asp-controller="Article" asp-action="Delete" asp-route-id="@item.Id" class="buton-delete">&#9986;</a>
+                        </li>
+                    </ul>
+                    <hr>
+                }
+            }
+            else
+            {
+                <p>No Articles available.</p>
+            }
+
+        </div>
+    </div>
+</div>

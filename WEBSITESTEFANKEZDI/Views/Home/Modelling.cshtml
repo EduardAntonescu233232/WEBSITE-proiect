@@ -1,0 +1,47 @@
+﻿@model List<WEBSITESTEFANKEZDI.Models.TMModellingArticleViewModel>
+
+@{
+    ViewData["Title"] = "Modelling";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="TM-background-image">
+    <div class="TM-text">
+        <h1> 3D Modelling </h1>
+        <p> Train Motion is a small Romanian team of digital game content creators. We specialize in producing realistic and immersive content for Dovetail Train Simulator Classic. Within our team, my focus is on recreating Romanian electric locomotives of the 060 EA type. Since I joined the team in mid-2021, my projects have been available for purchase.</p>
+    </div>
+    <div class="TM-content">
+        @if (Model != null && Model.Any(item => item.Type == 1))
+        {
+            <div class="TM-grid">
+                @foreach (var item in Model)
+                {
+                    if (item.Type == 1)
+                    {
+                        <div class="TM-card">
+                            <div class="TM-card-content">
+                                <h1>@item.Title</h1>
+                                <p>@item.Content</p>
+                            </div>
+                            <div class="image-gallery">
+                                <div class="slider">
+                                    @foreach (var image in item.Images)
+                                    {
+                                        <img src="@Url.Content("~/article_images/" + image)" alt="@item.ArticleId" class="Modelling-image" />
+                                    }
+                                </div>
+                                <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>  
+        }
+        else
+        {
+            <p class="NAA-message">No Articles available.</p>
+        }
+    </div>
+</div>
+<script src="~/js/photogallery.js"></script>

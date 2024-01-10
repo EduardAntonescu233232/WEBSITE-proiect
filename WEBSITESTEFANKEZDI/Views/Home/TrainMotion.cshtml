@@ -1,0 +1,42 @@
+﻿@model List<WEBSITESTEFANKEZDI.Models.TMModellingArticleViewModel>
+
+@{
+    ViewData["Title"] = "TrainMotion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="TM-background-image">
+        <div class="TM-text">
+            <h1> Train Motion </h1>
+            <p> Train Motion is a small Romanian team of digital game content creators. We specialize in producing realistic and immersive content for Dovetail Train Simulator Classic. Within our team, my focus is on recreating Romanian electric locomotives of the 060 EA type. Since I joined the team in mid-2021, my projects have been available for purchase.</p>
+        </div>
+        <div class="TM-content">
+            @if (Model != null && Model.Any(item => item.Type ==0))
+            {
+                <div class="TM-grid">
+                    @foreach (var item in Model)
+                    {
+                    if(item.Type == 0)
+                    {
+                        <div class="TM-card">
+                            <div class="TM-card-content">
+                                <a href="@item.URL">@item.Title</a>
+                                <p>@item.Content</p>
+                            </div>
+                            @foreach (var image in item.Images)
+                            {
+                                <a href="@item.URL)">
+                                    <img src="@Url.Content("~/article_images/" + image)" alt="@item.ArticleId" class="TM-image" />
+                                </a>
+                            }
+                        </div>
+                    }
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="NAA-message">No Articles available.</p>
+            }
+        </div>
+</div>

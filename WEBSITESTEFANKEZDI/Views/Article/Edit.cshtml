@@ -1,0 +1,36 @@
+﻿@model WEBSITESTEFANKEZDI.ViewModels.ArticleViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Article" asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-create">
+        <h4 class="title-login-signup">Edit</h4>
+        <hr />
+
+        <input asp-for="Id" type="hidden" />
+
+        <div class="form-child">
+            <label asp-for="Title"></label>
+            <div class="form-child-box">
+                <input asp-for="Title" />
+            </div>
+        </div>
+
+        <div class="form-child">
+            <label asp-for="Content"></label>
+            <div class="form-child-box">
+                <input asp-for="Content" />
+            </div>
+        </div>
+        <div class="form-child">
+            <div class="buton-create">
+                <button type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,67 @@
+﻿@model WEBSITESTEFANKEZDI.ViewModels.ArticleViewModel
+
+@{
+    ViewData["Title"] = "Add Article";
+}
+<div class="create-background">
+    <form asp-controller="Article" asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-create">
+            <h4 class="title-login-signup">Add an Article</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-child">
+                <label asp-for="ArticleType"></label>
+                <div class="form-child-box">
+                    @Html.DropDownListFor(model => model.ArticleType, Enum.GetValues(typeof(ArticleType)).Cast<ArticleType>().Select(e => new SelectListItem
+                    {
+                    Value = e.ToString(),
+                    Text = e.ToString()
+                    }), new { @class = "form-control custom-input-dropdown", id = "toggle-dropdown"})
+                    <span asp-validation-for="ArticleType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-child">
+                <label asp-for="Title"></label>
+                <div class="form-child-box">
+                    <input asp-for="Title" class="form-control custom-input" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-child-content">
+                <label asp-for="Content"></label>
+                <div class="form-child-box">
+                    <textarea asp-for="Content" class="form-control custom-input-content"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-child">
+                <label asp-for="URL" id="url-label"></label>
+                <div class="form-child-box">
+                    <input asp-for="URL" class="form-control custom-input" id="url-input" style="display: none;"/>
+                    <span asp-validation-for="URL" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-child">
+                <label asp-for="Images"></label>
+                <div class="form-child-box">
+                    <input id="Images" type="file" name="Images" multiple="multiple" />
+                    <span asp-validation-for="Images" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-child">
+                <div class="buton-create">
+                    <button type="submit" class="btn-primary">Create Article</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/jqueryurl.js"></script>

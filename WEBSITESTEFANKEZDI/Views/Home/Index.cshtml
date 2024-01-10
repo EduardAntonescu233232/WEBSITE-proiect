@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="homepage-image">
+    <div class="overview-content">
+        <div class="overview-grid">
+            <div class="overview-card">
+                <a href="@Url.Action("TrainMotion", "Home")">
+                    <img src="~/content_images/homepage_clickable_trainmotion.png" alt="TrainMotion" class="overview-image" />
+                    <p>Train Motion</p>
+                    <h1>Train Motion</h1>
+                </a>
+            </div>
+            <div class="overview-card">
+                <a href="@Url.Action("Modelling", "Home")">
+                    <img src="~/content_images/homepage_clickable_3d.png" alt="3DModelling" class="overview-image" />
+                    <p>3D Modelling</p>
+                    <h1>3D Modelling</h1>
+                </a>
+            </div>
+            <div class="overview-card">
+                <a href="@Url.Action("TrainSpotting", "Home")">
+                    <img src="~/content_images/homepage_clickable_trainspotting.png" alt="TrainSpotting" class="overview-image" />
+                    <p>Train Spotting</p>
+                    <h1>Train Spotting</h1>
+                </a>
+            </div>
+            <div class="overview-card">
+                <a href="@Url.Action("Aerial", "Home")">
+                    <img src="~/content_images/homepage_clickable_aerial.png" alt="Aerial" class="overview-image" />
+                    <p>Aerial Photography</p>
+                    <h1>Aerial Photography</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

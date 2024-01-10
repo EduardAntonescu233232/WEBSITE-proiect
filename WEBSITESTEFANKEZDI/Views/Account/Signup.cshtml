@@ -1,0 +1,52 @@
+﻿@*@model WEBSITESTEFANKEZDI.Models.SignupViewModel
+
+@{
+    ViewBag.Title = "Signup";
+}
+
+<form asp-action="Signup" asp-controller="Account" method="post">
+    <div class="form-signin-signup">
+        <h4 class="title-login-signup">Create your account</h4>
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-child">
+            <label asp-for="UserName"></label>
+            <div class="form-child-box">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-child">
+            <label asp-for="Email"></label>
+            <div class="form-child-box">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-child">
+            <label asp-for="Password"></label>
+            <div class="form-child-box">
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-child">
+            <label asp-for="ConfirmPassword"></label>
+            <div class="form-child-box">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-child">
+            <div class="buton-create">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</form>
+*@

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="">
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="header">
+        <nav class="mainnav">
+                
+            <a asp-controller="Home" asp-action="Index">Overview</a>
+                    
+            <a asp-controller="Home" asp-action="Projects">Projects</a>
+
+            <a class="contact" asp-controller="Home" asp-action="About">Contact</a>
+
+            @if (ViewContext.HttpContext.Session.GetString("UserName") == "Stefan")
+            {
+                <a asp-controller="Account" asp-action="Dashboard">Dashboard</a>
+
+                <a asp-controller="Account" asp-action="Logout">Logout</a>
+            }
+            
+        </nav>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">Stefan David Kezdi</a>
+
+        <div id="session-data" data-username="@ViewContext.HttpContext.Session.GetString("UserName")"></div>
+    </header>
+    <div class="container-body">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <div class="footer-container">
+        &copy; 2023 Stefan David Kezdi | All rights reserved.
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
